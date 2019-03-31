@@ -19,7 +19,7 @@ const Cur = {
     name: null,
 };
 
-const firstHundCopy = new Array(100);
+const firstHundCopy = new Array();
 
 const showMesg = (name, content, id) => {
     const mesArea = document.getElementById('mesArea');
@@ -63,24 +63,32 @@ socket.onmessage = () => {
     if (data.event === 'init') {        
         for (var i = 0; i < 100; i++) {
             showMesg(data.data.messages[i].name, data.data.messages[i].content, data.data.messages[i].userId);
-            firstHundCopy[i] = {
+            firstHundCopy.push({
                 name: data.data.messages[i].name,
                 content: data.data.messages[i].content,
                 id: data.data.messages[i].userId,
-            }
+            });
         }
-        console.log(firstHundCopy);
     } else if (data.event === 'typing') {
         type.innerHTML = `${data.data.name} набирает сообщение...`;
     } else if (data.event === 'conversation') {
         const scrollDown = mesArea.scrollTop + mesArea.offsetHeight == mesArea.scrollHeight;
 
         showMesg(data.data.name, data.data.content, data.data.userId);
+        firstHundCopy.shift();
+        firstHundCopy.push({
+            name: data.data.name,
+            content: data.data.content,
+            id: data.data.userId,
+        });
+
         type.innerHTML = null;
 
         if (scrollDown) mesArea.scrollTop = mesArea.scrollHeight;
     } else if (data.event === 'auth') {
         if (data.data.success) {
+            
+        console.log(firstHundCopy);
             auth.id = data.data.id;
             placer(firstHundCopy);
             alert('Вы авторизованы');
@@ -96,8 +104,9 @@ socket.onmessage = () => {
         }
     } else if (data.event === 'reg') {
         if (data.data.success) {
-            alert('Вы авторизованы');
             auth.id = data.data.id;
+            placer(firstHundCopy);
+            alert('Вы авторизованы');
             greeter.hidden = false;
             greeter.innerHTML = `Приветствую, ${regData.name}`;
             name.hidden = true;
