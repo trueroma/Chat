@@ -73,8 +73,12 @@ socket.onmessage = () => {
     } else if (data.event === 'typing') {
         type.innerHTML = `${data.data.name} набирает сообщение...`;
     } else if (data.event === 'conversation') {
+        const scrollDown = mesArea.scrollTop + mesArea.offsetHeight == mesArea.scrollHeight;
+
         showMesg(data.data.name, data.data.content, data.data.userId);
         type.innerHTML = null;
+
+        if (scrollDown) mesArea.scrollTop = mesArea.scrollHeight;
     } else if (data.event === 'auth') {
         if (data.data.success) {
             auth.id = data.data.id;
