@@ -1,0 +1,124 @@
+div, input {
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: none;
+}
+
+body {
+    font-family: Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #efefef;
+}
+
+.container {
+    display: flex;
+    width: 960px;
+    margin: auto;
+    padding: 0;
+}
+
+h1 {
+    margin-left: 20px;
+}
+
+#bottom {
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+#mainArea {
+    height: 80vh;
+}
+
+#mesArea {
+    box-sizing: border-box;
+    background: #ffffff;
+    padding: 20px;
+    margin: 5px;
+    width: 580px;
+    overflow-y: scroll;
+}
+
+.mesHeader {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #fff;
+    position: absolute;
+    width: 580px;
+    height: 30px;
+    margin: -20px 0 0 -20px;
+    padding: 8px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: 1px #efefef solid;
+}
+
+#mesArea div {
+    word-wrap: break-word;
+}
+
+.mesContainer.me {
+    text-align: right;
+}
+
+.mesContainer.me .mesAuthor {
+    color: rgb(90, 4, 4);
+}
+
+.mesAuthor {
+    margin: 15px 0 5px;
+    color: #aeaeae;
+    font-weight: bold;
+}
+
+.mesBody {
+    font-size: 14px;
+}
+
+.authorize {
+    height: 38.38vh;
+    width: 360px;
+    margin: 5px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.auth, .login, #userGreeter{
+    height: 40px;
+    width: 320px;
+    padding: 19px;
+    border: 1px #efefef solid;
+    margin-bottom: 10px;
+}
+
+#userGreeter {
+    border: none;
+    text-align: center;
+    padding: 11px;
+}
+
+.login {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    background-color: #efefef;
+    padding: 11px;
+    cursor: pointer;
+}
+
+.login:active {
+    background-color: #ececec;
+}
+
+#write {
+    padding-left: 20px;
+    font-size: 14px;
+    height: 40px;
+    width: 580px;
+    margin: 5px;
+    border: none;
+    outline: none;
+}
