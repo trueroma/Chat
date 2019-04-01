@@ -9,6 +9,7 @@ const name = document.getElementById("login");
 const password = document.getElementById("password");
 const passRep = document.getElementById("passwordRep");
 const back = document.getElementById("back");
+const menu = document.getElementById("menu");
 
 const greeter = document.getElementById("userGreeter");
 
@@ -99,6 +100,7 @@ socket.onmessage = () => {
             log.hidden = true;
             reg.hidden = true;
             exit.hidden = false;
+            menu.style.height = '130px';
         } else {
             alert('Неправильно введны имя или пароль');
         }
@@ -193,6 +195,7 @@ const getRegMenu = () => {
 
     reg.removeEventListener('click', getRegMenu);
     reg.addEventListener('click', register);
+    menu.style.height = '280px';
 }
 
 const getLogMenu = () => {
@@ -217,6 +220,7 @@ const getLogMenu = () => {
 
     reg.removeEventListener('click', register);
     reg.addEventListener('click', getRegMenu);
+    menu.style.height = '230px';
 }
 
 log.addEventListener('click', login);
