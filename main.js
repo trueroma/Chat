@@ -14,6 +14,7 @@ const menu = document.getElementById("menu");
 const greeter = document.getElementById("userGreeter");
 
 const type = document.getElementById("bottom");
+const submit = document.getElementById("send");
 const text = document.getElementById("write");
 
 const Cur = {
@@ -142,9 +143,11 @@ socket.onopen = () => {
 }
 
 const textIt = val => {
-    message.content = val;
-    send(message);
-    text.value = null;
+    if (val) {
+        message.content = val;
+        send(message);
+        text.value = null;
+    } else return;
 }
 
 const auth = {
@@ -228,12 +231,11 @@ reg.addEventListener('click', getRegMenu);
 back.addEventListener('click', getLogMenu);
 exit.addEventListener('click', () => send(exitData));
 
+submit.addEventListener('click', () => textIt(text.value));
 text.addEventListener('keypress', event => {
     if (event.key == 'Enter') {
         const content = text.value;
-        if (content) {
             textIt(content);
-        } else return;
     } else return;
 });
 }

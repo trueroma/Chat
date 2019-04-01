@@ -22,11 +22,6 @@ h1 {
     margin-left: 20px;
 }
 
-#bottom {
-    font-size: 12px;
-    margin-left: 20px;
-}
-
 #mainArea {
     height: 80vh;
 }
@@ -113,12 +108,39 @@ h1 {
     background-color: #ececec;
 }
 
+.inputArea {
+    width: 590px;
+    display: block;
+}
+
 #write {
     padding-left: 20px;
     font-size: 14px;
     height: 40px;
     width: 580px;
-    margin: 5px;
+    margin: 5px 5px 0 5px;
     border: none;
     outline: none;
+}
+
+#bottom {
+    font-size: 12px;
+    margin-left: 25px;
+}
+
+#send {
+    width: 100px;
+    height: 40px;
+    margin: 10px 5px 5px 5px;
+    font-size: 14px;
+    padding: 12px;
+    color: #fff;
+    background-color: #aeaeae;
+    text-align: center;
+    float: right;
+    cursor: pointer;
+}
+
+#send:active {
+    background: #cfcfcf;
 }
