@@ -126,11 +126,6 @@ h1 {
     outline: none;
 }
 
-#bottom {
-    font-size: 12px;
-    margin-left: 25px;
-}
-
 #send {
     width: 25px;
     height: 20px;
@@ -146,4 +141,9 @@ h1 {
 
 #send:active {
     background: #cfcfcf;
+}
+
+#bottom {
+    font-size: 12px;
+    margin-left: 25px;
 }
