@@ -119,6 +119,7 @@ socket.onmessage = () => {
             passRep.hidden = true;
             exit.hidden = false;
             back.hidden = true;
+            menu.style.height = '130px';
         } else if (data.data.reason === 'name') {
             alert('Дебил слепой, сука, имя введи нормально');
         } else if (data.data.reason === 'password') {
@@ -187,6 +188,30 @@ const register = () => {
     }
 }
 
+const sendForm = () => {
+    if (text.value.length < 256) {
+        submit.hidden = false;
+        // text.style.width = "530px";
+
+    } else submit.hidden = true;
+}
+
+const watchForm = () => {
+    if (text.value == '') {
+        submit.hidden = true;
+        // text.style.width = "580px";
+    }
+}
+
+const enterForm = event => {
+    if (event.key == 'Enter') {
+        if (text.value != '' && text.value.length < 256) {
+            const content = text.value;
+            textIt(content);
+        } else submit.hidden = true;
+    } else return;
+}
+
 const getRegMenu = () => {
     log.hidden = true;
     passRep.hidden = false;
@@ -232,12 +257,11 @@ back.addEventListener('click', getLogMenu);
 exit.addEventListener('click', () => send(exitData));
 
 submit.addEventListener('click', () => textIt(text.value));
-text.addEventListener('keypress', event => {
-    if (event.key == 'Enter') {
-        const content = text.value;
-            textIt(content);
-    } else return;
-});
+text.addEventListener('keypress', () => enterForm(event));
+text.addEventListener('input', sendForm);
+
+setInterval(watchForm, 1000);
+
 }
 
 document.addEventListener('DOMContentLoaded', main);

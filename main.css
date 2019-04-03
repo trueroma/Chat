@@ -108,17 +108,20 @@ h1 {
     background-color: #ececec;
 }
 
-.inputArea {
-    width: 590px;
-    display: block;
+.inputBlock {
+    width: 580px;
+    height: 40px;
+    margin: 5px;
+    display: flex;
+    background-color: #fff;
 }
 
 #write {
     padding-left: 20px;
+    padding-right: 20px;
     font-size: 14px;
     height: 40px;
     width: 580px;
-    margin: 5px 5px 0 5px;
     border: none;
     outline: none;
 }
@@ -129,15 +132,15 @@ h1 {
 }
 
 #send {
-    width: 100px;
-    height: 40px;
-    margin: 10px 5px 5px 5px;
-    font-size: 14px;
-    padding: 12px;
-    color: #fff;
-    background-color: #aeaeae;
+    width: 25px;
+    height: 20px;
+    margin: 12px;
+    /* font-size: 14px; */
+    /* padding: 12px; */
+    /* color: #fff; */
+    /* background-color: #aeaeae; */
+    vertical-align: center;
     text-align: center;
-    float: right;
     cursor: pointer;
 }
 
