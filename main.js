@@ -130,8 +130,10 @@ socket.onmessage = () => {
             alert('Что-то пошло не так :(');
         }
     } else if (data.event === 'exit') {
+        auth.id = 0;
+        placer(firstHundCopy);
         alert('Вы вышли! (Жаль, что не в окно)');
-            getLogMenu();
+        getLogMenu();
     }
 }
 
